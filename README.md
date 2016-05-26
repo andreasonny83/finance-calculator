@@ -65,71 +65,80 @@ The following example show how to style the component up using SASS and will pro
 ```
 .finance_calculator {
 
+  &.finance_calculator__wrap {
+    padding-top: 30px;
+  }
+
   /* Form */
-  .finance_calculator__form: {
+  &.finance_calculator__form {
     width: 100%;
-    background: #ccc;
+    background: #CCC;
     border-radius: 3px;
     padding: 5px 10px;
     margin-bottom: 15px;
-    
+
     h2 {
-        text-align: left;
-        margin: 5px 0;
-        padding: 0;
-        font-size: 18px;
-        color: #4d4d4d;
+      text-align: left;
+      margin: 5px 0;
+      padding: 0;
+      font-size: 18px;
+      color: #4D4D4D;
     }
-    
-    #cost {
-        margin: 5px 20px 0 0;
-        color: #444;
-        border-radius: 2px;
-        font-size: 12px;
-        font-weight: bold;
-        height: 27px;
-        line-height: 27px;
-        padding: 0 8px;
+
+    input[name="amount"] {
+      margin: 5px 20px 0 5px;
+      color: #444;
+      border-radius: 2px;
+      font-size: 12px;
+      font-weight: bold;
+      height: 27px;
+      line-height: 27px;
+      padding: 0 8px;
     }
-    
+
     input[type="submit"] {
-        padding: 0 25px;
-        line-height: 30px;
-        height: 30px;
+      padding: 0 25px;
+      line-height: 30px;
+      height: 30px;
     }
-    
-    /* Tables */
-    .finance_calculator__table {
-        width: 100%;
-        padding: 10px;
-        text-align: left;
-        border: 1px solid #5f5465;
-    
-        .finance_calculator__table__title {
-            background-color: #403448;
-            
-            h3 {
-                text-align: center;
-                color: #fff;
-                margin: 0;
-                font-size: 16px;
-            }
-        }
-        
-        .finance_calculator__table__title--no-deposit {
-            background-color: #673188;
-        }
-        
-        .finance_calculator__table__row {
-            td {
-                width: 50%;
-            }
-            
-            td + td {
-                background-color: #F0E8F2;
-            }
-        }
+  }
+
+  /* Tables */
+  &.finance_calculator__table {
+    width: 100%;
+    margin-bottom: 30px;
+
+    td {
+      padding: 10px;
+      text-align: left;
+      border: 1px solid #5F5465;
+    }
+
+    .finance_calculator__table__title,
+    .finance_calculator__table__title h3 {
+      background-color: #403448;
+      text-align: center;
+      color: #FFF;
+      margin: 0;
+      font-size: 16px;
+      line-height: 40px;
+    }
+
+    .finance_calculator__table__title--no-deposit {
+      background-color: #673188;
+      font-size: 14px;
+      line-height: 24px;
+    }
+
+    .finance_calculator__table__row {
+      td {
+        width: 50%;
+      }
+
+      td + td {
+        background-color: #F0E8F2;
       }
     }
+  }
 }
 ```

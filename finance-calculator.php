@@ -2,16 +2,17 @@
 function render_form() {
   $value = isset($_GET['amount']) ? $_GET['amount'] : null;
 
-  return '<form name="finance_calculator" class="finance_calculator finance_calculator__form" method="get" action="' .
-              htmlspecialchars($_SERVER['REQUEST_URI']) . '">' .
-            '<h2>Finance Calculator</h2>' .
-            '<p><label>Please enter the treatment cost : £' .
-              '<input name="amount" type="number" id="cost" max="25000" step="100" ' .
-              'placeholder="Treatment Cost" min="600"  value="' . $value . '">' .
-              '</label>' .
-              '<input type="submit" value="Calculate">' .
-            '</p>' .
-          '</form>';
+  return '<div class="finance_calculator finance_calculator__wrap" id="finance">' .
+            '<form name="finance_calculator" class="finance_calculator finance_calculator__form" method="get" action="' .
+                htmlspecialchars($_SERVER['REQUEST_URI'] . '#finance') . '">' .
+              '<h2>Finance Calculator</h2>' .
+              '<p><label>Please enter the treatment cost : £' .
+                '<input name="amount" type="number" max="25000" step="100" ' .
+                'placeholder="Treatment Cost" min="600"  value="' . $value . '" />' .
+                '</label>' .
+                '<input type="submit" value="Calculate" />' .
+              '</p>' .
+          '</form></div>';
 }
 
 function render_table($amount, $months = array(6, 10, 12), $finance = 0) {
