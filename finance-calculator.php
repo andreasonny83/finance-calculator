@@ -22,10 +22,10 @@ function render_table($amount, $months = array(6, 10, 12), $finance) {
   $output = '' .
       '<table class="finance_calculator finance_calculator__table">' .
         '<tbody>' .
-          '<tr><td colspan="2"><h3 class="finance_calculator finance_calculator__table__title">' .
+          '<tr><td colspan="2" class="finance_calculator finance_calculator__table__title"><h3>' .
             '<strong>' . $finance . '% Finance</strong>' .
           '</h3></td></tr>' .
-          '<tr><td colspan="2" class="finance_calculator finance_calculator__table__title--no-deposit">' .
+          '<tr><td colspan="2" class="finance_calculator finance_calculator__table__title finance_calculator__table__title--no-deposit">' .
             '<strong>No Deposit</strong>' .
           '</td></tr>';
 
