@@ -2,7 +2,7 @@
 function render_form() {
   $value = isset($_GET['amount']) ? $_GET['amount'] : null;
 
-  return '<form name="finance_calculator finance_calculator__form" method="get" action="' .
+  return '<form name="finance_calculator" class="finance_calculator finance_calculator__form" method="get" action="' .
               htmlspecialchars($_SERVER['REQUEST_URI']) . '">' .
             '<h2>Finance Calculator</h2>' .
             '<p><label>Please enter the treatment cost : £' .
@@ -20,19 +20,19 @@ function render_table($amount, $months = array(6, 10, 12), $finance) {
             0;
 
   $output = '' .
-      '<table class="finance_calculator">' .
+      '<table class="finance_calculator finance_calculator__table">' .
         '<tbody>' .
-          '<tr><td colspan="2"><h3 class="finance_calculator finance_calculator__title">' .
+          '<tr><td colspan="2"><h3 class="finance_calculator finance_calculator__table__title">' .
             '<strong>' . $finance . '% Finance</strong>' .
           '</h3></td></tr>' .
-          '<tr><td colspan="2" class="finance_calculator finance_calculator__no-deposit">' .
+          '<tr><td colspan="2" class="finance_calculator finance_calculator__table__title--no-deposit">' .
             '<strong>No Deposit</strong>' .
           '</td></tr>';
 
   foreach ($months as $month) {
     $output .= $month === 1 ?
-        '<tr><td><strong>' . $month . ' Month</strong></td>' :
-        '<tr><td><strong>' . $month . ' Months</strong></td>';
+        '<tr class="finance_calculator finance_calculator__table__row"><td><strong>' . $month . ' Month</strong></td>' :
+        '<tr class="finance_calculator finance_calculator__table__row"><td><strong>' . $month . ' Months</strong></td>';
 
     $output .= '<td>£' . round($total / $month, 2, PHP_ROUND_HALF_DOWN) . '</td></tr>';
   }
