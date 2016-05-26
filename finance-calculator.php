@@ -14,8 +14,10 @@ function render_form() {
           '</form>';
 }
 
-function render_table($amount, $months = array(6, 12), $finance = 0) {
-  $total = $amount / 100 * ($finance + 100);
+function render_table($amount, $months = array(6, 10, 12), $finance) {
+  $total =  $amount > 0 ?
+            $amount / 100 * ($finance + 100) :
+            0;
 
   $output = '' .
       '<table class="finance_calculator">' .
@@ -54,7 +56,12 @@ function finance_calculator( $atts ) {
                 'finance' => 'finance',
                 'months'  => 'months',
             ), $atts );
-  $amount = isset($_GET['amount']) ? $_GET['amount'] : null;
+  $amount   = isset($_GET['amount']) ?
+              $_GET['amount'] :
+              0;
+  $finance  = isset($attributes['finance']) ?
+              $attributes['finance'] :
+              10;
   $monts = array();
 
   $no_whitespaces = preg_replace( '/\s*,\s*/', ',', filter_var( $attributes['months'], FILTER_SANITIZE_STRING ) );
@@ -64,17 +71,9 @@ function finance_calculator( $atts ) {
     $months_array = [24, 36, 48, 60];
   }
 
-  $output = render_form();
-
-  if (!$amount || $amount === '') {
-    return $output;
-  }
-
+  $output  = render_form();
   $output .= render_table($amount, [6, 10, 12]);
-
-  if ($attributes['finance'] && $attributes['finance'] !== null) {
-    $output .= render_table($amount, $months_array, $attributes['finance']);
-  }
+  $output .= render_table($amount, $months_array, $finance);
 
   return $output;
 }
