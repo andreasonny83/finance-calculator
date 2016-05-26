@@ -14,7 +14,7 @@ function render_form() {
           '</form>';
 }
 
-function render_table($amount, $months = array(6, 10, 12), $finance) {
+function render_table($amount, $months = array(6, 10, 12), $finance = 0) {
   $total =  $amount > 0 ?
             $amount / 100 * ($finance + 100) :
             0;
