@@ -114,9 +114,7 @@ provided with all the classes you might need in order to create a fancy style.
 The following example show how to style the component up using SASS and will
 produce the following result:
 
-```html
-<img src="http://i.imgur.com/IeKO5iM.png" title="source: imgur.com" />
-```
+![](http://i.imgur.com/IeKO5iM.png)
 
 ```css
 .finance_calculator {
